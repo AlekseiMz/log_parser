@@ -25,7 +25,7 @@ IOC_PATTERNS = {
 }
 
 # Set of supported file MIME types
-SUPPORTED_TYPES = {"pdf", "csv", "html", "json", "txt"}
+SUPPORTED_TYPES = {"pdf", "csv", "html", "json", "txt", None}
 
 # Initialize list to hold valid input files
 input_files = sys.argv[1:]
@@ -49,7 +49,7 @@ if not valid_files:
 file_type_map = {}
 for file in valid_files:
     mime_type, _ = mimetypes.guess_type(file)
-    file_extension = mime_type.split("/")[-1] if mime_type else os.path.splitext(file)[1].lstrip('.')
+    file_extension = mime_type.split("/")[-1] if mime_type or None else  os.path.splitext(file)[1].lstrip('.')
 
     if file_extension in SUPPORTED_TYPES:
         file_type_map[file] = file_extension
@@ -85,8 +85,8 @@ def process_file(file_name: str, mime_type: str) -> str:
             with open(file_name, "r", encoding="utf-8", errors="ignore") as file:
                 return file.read()
         else:
-            logging.warning(f"Unsupported file type: {mime_type}")
-            return ""
+            with open(file_name, "r", encoding="utf-8", errors="ignore") as file:
+                return file.read()
     except Exception as error:
         logging.error(f"Error reading {file_name}: {error}")
         return ""
