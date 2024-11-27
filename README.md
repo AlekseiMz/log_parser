@@ -33,8 +33,8 @@ Ensure you are using Python 3.6 or higher.
 If you haven't already, clone or download this repository to your local machine.
 
 ```bash
-git clone <repository-url>
-cd <repository-directory>
+git clone https://github.com/AlekseiMz/log_parser.git
+cd log_parser
 ```
 
 ### 2. Install Dependencies
