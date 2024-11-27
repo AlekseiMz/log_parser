@@ -78,13 +78,13 @@ Run the script with the input files as arguments.
 From the Command Line (Linux/macOS/Windows):
 
 ```bash
-python3 process_iocs.py <file1> <file2> ...
+python3 log_parser.py <file1> <file2> ...
 ```
 
 For example:
 
 ```bash
-python3 process_iocs.py file1.csv file2.pdf file3.json
+python3 log_parser.py file1.csv file2.pdf file3.json
 ```
 
 This will process the files and output the results.
